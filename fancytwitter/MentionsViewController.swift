@@ -46,7 +46,7 @@ class MentionsViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.profileImageView.setImageWith((tweet.imageURL)!)
         cell.tweetLabel.text = tweet.text as? String
         
-        let dateLabelStirng = "\(tweet.timestamp)"
+        let dateLabelStirng = "\(tweet.timestamp!)"
         let dateLabelArray = dateLabelStirng.components(separatedBy: " ")
         cell.tweetDateLabel.text = "\(dateLabelArray[0]) \(dateLabelArray[1])"
         
