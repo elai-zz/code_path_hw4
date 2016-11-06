@@ -30,6 +30,11 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
         timelineTableView.dataSource = self
         timelineTableView.estimatedRowHeight = 100
         timelineTableView.rowHeight = UITableViewAutomaticDimension
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
+        timelineTableView.insertSubview(refreshControl, at: 0)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +54,19 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
         let root = self.view?.window?.rootViewController as! ViewController
         root.openUsersView(id: selectedScreenName!)
 
+    }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        let twitterClient = TwitterClient.sharedInstance
+        twitterClient?.homeTimeline(success: { (tweets) in
+            self.tweets = tweets
+            self.timelineTableView.reloadData()
+        }, failure: { (error) in
+            print(error.localizedDescription)
+        })
+        
+        // Tell the refreshControl to stop spinning
+        refreshControl.endRefreshing()
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
