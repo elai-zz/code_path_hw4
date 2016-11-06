@@ -13,7 +13,6 @@ class MentionsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var sadView: UIView!
     @IBOutlet weak var mentionsTable: UITableView!
     var mentions : [Tweet]?
-    var selectedScreenName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +42,18 @@ class MentionsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mentionsTable.dequeueReusableCell(withIdentifier: "mentionsCell", for: indexPath) as! MentionsCell
-        cell.profileImageView.setImageWith((mentions?[indexPath.row].imageURL)!)
-        cell.tweetLabel.text = mentions?[indexPath.row].text as? String
+        let tweet = mentions![indexPath.row] as Tweet
+        cell.profileImageView.setImageWith((tweet.imageURL)!)
+        cell.tweetLabel.text = tweet.text as? String
+        
+        let dateLabelStirng = "\(tweet.timestamp)"
+        let dateLabelArray = dateLabelStirng.components(separatedBy: " ")
+        cell.tweetDateLabel.text = "\(dateLabelArray[0]) \(dateLabelArray[1])"
+        
+        cell.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.onTapGesture))
+        cell.profileImageView.addGestureRecognizer(tap)
+
         return cell
     }
     
@@ -73,8 +82,9 @@ class MentionsViewController: UIViewController, UITableViewDataSource, UITableVi
         let location = sender.location(in: mentionsTable)
         let indexPath = mentionsTable.indexPathForRow(at: location)
         let row  = indexPath!.row
+        var selectedScreenName: String?
         if let tweet = self.mentions?[row] {
-            self.selectedScreenName = tweet.screenName as String?
+            selectedScreenName = tweet.screenName as String?
         }
         
         let root = self.view?.window?.rootViewController as! ViewController

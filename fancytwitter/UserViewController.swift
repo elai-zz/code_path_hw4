@@ -88,8 +88,14 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = userTimelineTable.dequeueReusableCell(withIdentifier: "timelineCell", for: indexPath) as! UserTimelineCell
-        cell.profileImageView.setImageWith((tweets?[indexPath.row].imageURL)!)
-        cell.tweetLabel.text = tweets?[indexPath.row].text as? String
+        let tweet = tweets![indexPath.row] as Tweet
+        cell.profileImageView.setImageWith((tweet.imageURL)!)
+        cell.tweetLabel.text = tweet.text as? String
+        
+        let dateLabelStirng = "\(tweet.timestamp!)"
+        let dateLabelArray = dateLabelStirng.components(separatedBy: " ")
+        cell.tweetDateLabel.text = "\(dateLabelArray[0]) \(dateLabelArray[1])"
+        
         return cell
     }
 

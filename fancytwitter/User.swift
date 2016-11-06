@@ -32,7 +32,7 @@ class User: NSObject {
         tagline = dictionary["description"] as? String as NSString?
         
         numTweet = dictionary["statuses_count"] as? Int ?? 0
-        numFollowing = dictionary["following"] as? Int ?? 0
+        numFollowing = dictionary["friends_count"] as? Int ?? 0
         numFollowers = dictionary["followers_count"] as? Int ?? 0
         
         let profileUrlString = dictionary["profile_image_url_https"] as? String

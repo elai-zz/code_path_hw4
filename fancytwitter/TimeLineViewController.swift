@@ -37,6 +37,19 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onTapGesture(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: timelineTableView)
+        let indexPath = timelineTableView.indexPathForRow(at: location)
+        let row  = indexPath!.row
+        var selectedScreenName: String?
+        if let tweet = self.tweets?[row] {
+            selectedScreenName = tweet.screenName as String?
+        }
+        
+        let root = self.view?.window?.rootViewController as! ViewController
+        root.openUsersView(id: selectedScreenName!)
+
+    }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (tweets != nil) ? tweets.count : 0
@@ -51,6 +64,9 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
             cell.profileImageView.setImageWith(tweet.imageURL!)
             cell.timeStampLabel.text = getTimeDifference(createdDate: tweet.timestamp!)
         }
+        cell.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.onTapGesture))
+        cell.profileImageView.addGestureRecognizer(tap)
         return cell
     }
     

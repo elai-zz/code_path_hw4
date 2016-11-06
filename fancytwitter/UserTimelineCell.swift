@@ -12,6 +12,7 @@ class UserTimelineCell: UITableViewCell {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var tweetDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
