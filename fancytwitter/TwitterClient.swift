@@ -107,6 +107,15 @@ class TwitterClient: BDBOAuth1SessionManager {
             }) { (task, error) in
                 failure(error)
             }
+        } else {
+            get("1.1/statuses/user_timeline.json?screen_name=\(userId!)", parameters: nil, progress: nil, success: { (task, response) in
+                let tweetDictionaries = response as! [NSDictionary]
+                let tweets = Tweet.tweetsWithArray(dictionaries: tweetDictionaries)
+                success(tweets)
+            }) { (task, error) in
+                failure(error)
+            }
+
         }
     }
     
@@ -119,4 +128,15 @@ class TwitterClient: BDBOAuth1SessionManager {
             failure(error)
         }
     }
+    
+    func getOtherUser(userId: String?, success: @escaping(User) -> (), failure: @escaping (Error) -> ()) {
+        get("1.1/users/lookup.json?screen_name=\(userId!)", parameters: nil, progress: nil, success: { (task, response) in
+            let userDictionary = response as! [NSDictionary]
+            let user = User(dictionary: userDictionary[0])
+            success(user)
+        }) { (task, error) in
+            failure(error)
+        }
+    }
+
 }

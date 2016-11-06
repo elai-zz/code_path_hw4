@@ -15,9 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var leftMarginConstraint: NSLayoutConstraint!
     
     var originalLeftMargin: CGFloat!
-    var meunViewController: UIViewController!
     
-    var menuViewController: UIViewController! {
+    var menuViewController: MenuViewController! {
         didSet {
             view.layoutIfNeeded() // call viewDidLoad before hitting the next line.
             menuViewController.willMove(toParentViewController: self)
@@ -41,9 +40,11 @@ class ViewController: UIViewController {
             // this line will call willAppear
             contentViewController.willMove(toParentViewController: self)
             contentView.addSubview(contentViewController.view)
+            contentViewController.viewDidLoad()
             // after my animation, we want to do this immediately because it's visible immediately (from layoutIfNeeded)
             // this will call didAppear
             contentViewController.didMove(toParentViewController: self)
+            view.layoutIfNeeded() // call viewDidLoad before hitting the next line.
             UIView.animate(withDuration: 0.3, animations: {
                 self.leftMarginConstraint.constant = 0
                 self.view.layoutIfNeeded()
@@ -95,6 +96,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func openUsersView(id: String!) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationController = storyboard.instantiateViewController(withIdentifier: "UserNavigationController") as! UINavigationController
+        let destination = navigationController.topViewController as! UserViewController
+        let button = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.dismissView))
+        destination.navigationItem.leftBarButtonItem = button
+        destination.setUser(screenName: id)
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func dismissView() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 

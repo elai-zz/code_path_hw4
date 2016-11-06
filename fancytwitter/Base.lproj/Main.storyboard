@@ -311,6 +311,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7df-wL-2nS" firstAttribute="leading" secondItem="8Mc-ey-924" secondAttribute="trailing" constant="5" id="1kO-QF-znB"/>
                             <constraint firstItem="8Mc-ey-924" firstAttribute="leading" secondItem="4KX-JK-f3d" secondAttribute="leading" constant="10" id="6Y6-2g-hP0"/>
@@ -447,6 +448,7 @@
                     <connections>
                         <outlet property="mentionsTable" destination="4R9-0s-2pc" id="cUT-VE-xXf"/>
                         <outlet property="sadView" destination="T3f-pt-ZsM" id="1ZR-pz-Gf3"/>
+                        <segue destination="B0c-bl-fUZ" kind="presentation" identifier="foo" id="4m1-ta-Dnd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLD-eL-dLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -456,7 +458,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1694" y="1281"/>
+            <point key="canvasLocation" x="1633" y="1687"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="QUw-eV-3t8">
@@ -567,12 +569,11 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="MrR-9H-1QQ" kind="relationship" relationship="rootViewController" id="Eon-Og-hI7"/>
-                        <segue destination="B0c-bl-fUZ" kind="presentation" identifier="mentionsToUser" id="qXg-8t-9qY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgP-R3-n5N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1719" y="151"/>
+            <point key="canvasLocation" x="1634" y="922"/>
         </scene>
     </scenes>
 </document>

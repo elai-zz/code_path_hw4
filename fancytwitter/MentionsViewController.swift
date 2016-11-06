@@ -13,6 +13,7 @@ class MentionsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var sadView: UIView!
     @IBOutlet weak var mentionsTable: UITableView!
     var mentions : [Tweet]?
+    var selectedScreenName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,8 +69,15 @@ class MentionsViewController: UIViewController, UITableViewDataSource, UITableVi
         })
     }
     
-    @IBAction func onTapGesture(_ sender: Any) {
-        self.navigationController?.performSegue(withIdentifier: "mentionsToUser", sender: sender)
+    @IBAction func onTapGesture(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: mentionsTable)
+        let indexPath = mentionsTable.indexPathForRow(at: location)
+        let row  = indexPath!.row
+        if let tweet = self.mentions?[row] {
+            self.selectedScreenName = tweet.screenName as String?
+        }
+        
+        let root = self.view?.window?.rootViewController as! ViewController
+        root.openUsersView(id: selectedScreenName!)
     }
-
 }
