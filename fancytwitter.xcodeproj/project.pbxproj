@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE2657691DCFECC400757D28 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2657681DCFECC400757D28 /* ComposeViewController.swift */; };
+		AE26576B1DCFF16300757D28 /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE26576A1DCFF16300757D28 /* TweetDetailViewController.swift */; };
 		AE824EB21DCE8019001C4316 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE824EB11DCE8019001C4316 /* AppDelegate.swift */; };
 		AE824EB41DCE8019001C4316 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE824EB31DCE8019001C4316 /* ViewController.swift */; };
 		AE824EB91DCE8019001C4316 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE824EB81DCE8019001C4316 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		60867791A3684CF6AA3B5A68 /* Pods-fancytwitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fancytwitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-fancytwitter/Pods-fancytwitter.release.xcconfig"; sourceTree = "<group>"; };
 		70664693347ECA816C694C76 /* Pods-fancytwitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fancytwitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fancytwitter/Pods-fancytwitter.debug.xcconfig"; sourceTree = "<group>"; };
 		AE2657681DCFECC400757D28 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		AE26576A1DCFF16300757D28 /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
 		AE824EAE1DCE8019001C4316 /* fancytwitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fancytwitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE824EB11DCE8019001C4316 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE824EB31DCE8019001C4316 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				AE824ECE1DCE9143001C4316 /* MentionsViewController.swift */,
 				AE824ED01DCE95E0001C4316 /* LoginViewController.swift */,
 				AE2657681DCFECC400757D28 /* ComposeViewController.swift */,
+				AE26576A1DCFF16300757D28 /* TweetDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				AE824ED41DCE982A001C4316 /* TwitterClient.swift in Sources */,
 				AE824ECD1DCE9138001C4316 /* UserViewController.swift in Sources */,
 				AE824EC51DCE87A8001C4316 /* MenuViewController.swift in Sources */,
+				AE26576B1DCFF16300757D28 /* TweetDetailViewController.swift in Sources */,
 				AE824EC81DCE886D001C4316 /* MenuCell.swift in Sources */,
 				AE824ED11DCE95E0001C4316 /* LoginViewController.swift in Sources */,
 				AE824ECB1DCE912E001C4316 /* TimeLineViewController.swift in Sources */,

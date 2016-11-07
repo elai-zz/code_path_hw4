@@ -82,6 +82,14 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
+    func reply(id: String, status: String, success: @escaping() -> (), failure: @escaping (Error) -> ()) {
+        post("1.1/statuses/update.json?status=\(status)&in_reply_to_status_id=\(id)", parameters: nil, progress: nil, success: { (task, response) in
+            success()
+        }) { (task, error) in
+            failure(error)
+        }
+    }
+    
     func favoriteTweet(id: String, success: @escaping() -> (), failure: @escaping (Error) -> ()) {
         post("1.1/favorites/create.json?id=\(id)", parameters: nil, progress: nil, success: { (task, response) in
             success()
