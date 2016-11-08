@@ -9,14 +9,14 @@ Time spent: **12** hours spent in total
 The following **required** functionality is completed:
 
 Hamburger menu:
-[X]Dragging anywhere in the view should reveal the menu.
-[X]The menu should include links to your profile, the home timeline, and the mentions view.
+-[x] Dragging anywhere in the view should reveal the menu.
+-[x] The menu should include links to your profile, the home timeline, and the mentions view.
 Profile Page:
-[X]Contains the user header view
-[X]Contains a section with the users basic stats: # tweets, # following, # followers
-[X]Shows the user timeline
+-[x] Contains the user header view
+-[x] Contains a section with the users basic stats: # tweets, # following, # followers
+-[x] Shows the user timeline
 Home Timeline:
-[X]Tapping on a user image should bring up that user's profile page
+-[x] Tapping on a user image should bring up that user's profile page
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
